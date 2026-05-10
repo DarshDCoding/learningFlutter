@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ManageCounter());
+  runApp(const App());
 }
-
-
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -12,60 +10,41 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.deepPurple.shade200,
         appBar: AppBar(
-          backgroundColor: Colors.amber.shade800,
-          title: const Text('Atleast something...'),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: "Post"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          ],
-        ),
-        drawer: Drawer(child: Text("Side Menu")),
-      ),
-    );
-  }
-}
+          title: Text("DoToDo",
+          style: TextStyle(color: Colors.amber.shade50)),
+          backgroundColor: Colors.deepPurple.shade800,
+          
+          //for box shadow....
+          shadowColor: Colors.deepPurple.shade300,
+          elevation: 5,
 
-class ManageCounter extends StatefulWidget {
-  const ManageCounter({super.key});
-  @override
-  State<ManageCounter> createState() => _ManageCounterState();
-}
-
-class _ManageCounterState extends State<ManageCounter> {
-  int count = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.amber.shade800,
-          title: const Text('Atleast something...'),
+          //icon on left (use leading)
+          leading: Icon(Icons.menu,
+          color: Colors.amber.shade50,),
+          actions: [IconButton(onPressed: ()=>{}, icon: Icon(Icons.menu))],
         ),
-
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.add),label: "Add"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          ],
+        body: Center(
+          child: Container(
+            height: 300,
+            width: 300,
+            // padding: EdgeInsets.only(top: 40, left: 40),
+            decoration: BoxDecoration(
+              color: Colors.deepPurple.shade800,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Center(
+              child: Icon(
+                Icons.favorite_sharp,
+                color: Colors.red.shade500,
+                size: 48,
+              ),
+            ),
+          ),
         ),
-        drawer: Drawer(child: Text("Side Menu")),
-        floatingActionButton: FloatingActionButton(
-          child: Text('Count'),
-          onPressed: () {
-            setState(() {
-              count++;
-            });
-          },
-        ),
-        body: Center(child: Text('$count',
-        style: TextStyle(fontSize: 80),)),
       ),
     );
   }
