@@ -12,39 +12,37 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.deepPurple.shade200,
-        appBar: AppBar(
-          title: Text("DoToDo",
-          style: TextStyle(color: Colors.amber.shade50)),
-          backgroundColor: Colors.deepPurple.shade800,
-          
-          //for box shadow....
-          shadowColor: Colors.deepPurple.shade300,
-          elevation: 5,
-
-          //icon on left (use leading)
-          leading: Icon(Icons.menu,
-          color: Colors.amber.shade50,),
-          actions: [IconButton(onPressed: ()=>{}, icon: Icon(Icons.menu))],
-        ),
-        body: Center(
-          child: Container(
-            height: 300,
-            width: 300,
-            // padding: EdgeInsets.only(top: 40, left: 40),
-            decoration: BoxDecoration(
-              color: Colors.deepPurple.shade800,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Center(
-              child: Icon(
-                Icons.favorite_sharp,
-                color: Colors.red.shade500,
-                size: 48,
+        // backgroundColor: Colors.deepPurple.shade200,
+        body: 
+        Container(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              //Expanded can be used to make all items take equal space in given container by removing height and widhth from every children.
+              //box 1
+              Expanded( //expands to take all space in whatever dimention in missing i.e. height/width
+                child: Container(
+                  color: Colors.amber.shade200,
+                ),
               ),
-            ),
+              //box 2
+              Expanded(
+                flex: 3, //height ratio in comparison with other childrens
+                child: Container(
+                  color: Colors.amber.shade600,
+                ),
+              ),
+              //box 3
+              Expanded(
+                flex: 2,
+                child: Container(
+                  color: Colors.amber.shade800,
+                ),
+              ),
+            ],
           ),
-        ),
+        )
       ),
     );
   }
