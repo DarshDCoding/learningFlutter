@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const App());
+  runApp(App());
 }
 
 class App extends StatelessWidget {
-  const App({super.key});
+  App({super.key});
+
+  List names = ["Sanju", "Mitesh", "Vineet", "Nitin"];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: ListView(
-          // scrollDirection: Axis.horizontal, //be default Axis.vertical
-          children: [
-            Container(
-              height: 350,
-              decoration: BoxDecoration(color: Colors.amber.shade200),
-            ),
-            Container(
-              height: 350,
-              decoration: BoxDecoration(color: Colors.amber.shade400),
-            ),
-            Container(
-              height: 350,
-              decoration: BoxDecoration(color: Colors.amber.shade600),
-            ),
-          ],
-        ),
+        body: GridView.builder(
+          itemCount: 64,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8), 
+          itemBuilder: (context, index) =>
+              Container(
+                margin: EdgeInsets.all(2),
+                color: Colors.deepPurple.shade800,),
+          ),
       ),
     );
   }
