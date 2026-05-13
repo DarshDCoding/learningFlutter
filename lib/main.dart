@@ -4,6 +4,30 @@ void main() {
   runApp(App());
 }
 
+Widget crateButton({
+  required IconData icon,
+  required VoidCallback tapp,
+  required Color color,
+}) {
+  return Material(
+    borderRadius: BorderRadius.circular(20),
+    // color: color,
+    child: InkWell(
+      onTap: tapp,
+      child: Container(
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(20),
+          color: color,
+        ),
+        child: Icon(icon),
+      ),
+    ),
+  );
+}
+
 class App extends StatefulWidget {
   const App({super.key});
 
@@ -23,66 +47,48 @@ class _AppState extends State<App> {
             height: 200,
             width: 200,
             decoration: BoxDecoration(
-            color: Colors.deepPurple.shade600,
-            borderRadius: BorderRadius.circular(25)
+              color: Colors.deepPurple.shade600,
+              borderRadius: BorderRadius.circular(25),
             ),
             child: Container(
               margin: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("$counter",
-                  style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.white
-                  ),),
+                  Text(
+                    "$counter",
+                    style: TextStyle(fontSize: 50, color: Colors.white),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       //add
-                      GestureDetector(
-                        onTap: () {
+                      crateButton(
+                        icon: Icons.add,
+                        tapp: () => {
                           setState(() {
                             counter++;
-                          });
+                          }),
                         },
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.green.shade200                           
-                          ),
-                          child: Icon(Icons.add),
-                        ),
+                        color: Colors.green.shade200,
                       ),
-                        
                       //remove
-                      GestureDetector(
-                        onTap: () {
+                      crateButton(
+                        icon: Icons.remove,
+                        tapp: () => {
                           setState(() {
                             counter--;
-                          });
+                          }),
                         },
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.red.shade200                           
-                          ),
-                          child: Icon(Icons.remove),
-                        ),
-                      )
+                        color: Colors.red.shade200,
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
           ),
-        )
+        ),
       ),
     );
   }
