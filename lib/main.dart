@@ -12,7 +12,7 @@ Widget crateButton({
   return Material(
     borderRadius: BorderRadius.circular(20),
     // color: color,
-    child: InkWell(
+    child: GestureDetector(
       onTap: tapp,
       child: Container(
         height: 40,
@@ -37,6 +37,7 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   int counter = 0;
+  Color culler = Colors.deepPurple.shade600;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,7 +48,7 @@ class _AppState extends State<App> {
             height: 200,
             width: 200,
             decoration: BoxDecoration(
-              color: Colors.deepPurple.shade600,
+              color: culler,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Container(
@@ -68,6 +69,7 @@ class _AppState extends State<App> {
                         tapp: () => {
                           setState(() {
                             counter++;
+                            culler = Colors.green.shade600;
                           }),
                         },
                         color: Colors.green.shade200,
@@ -78,6 +80,7 @@ class _AppState extends State<App> {
                         tapp: () => {
                           setState(() {
                             counter--;
+                            culler = Colors.red.shade600;
                           }),
                         },
                         color: Colors.red.shade200,
