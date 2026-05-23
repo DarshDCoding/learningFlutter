@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:appBar("Home"),
-      drawer: NavDrawer(),
+      drawer: NavDrawer(currentTab: 1,),
     );
   }
 }

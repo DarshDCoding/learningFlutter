@@ -9,7 +9,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:appBar("Settings"),
-      drawer: NavDrawer(),
+      drawer: NavDrawer(currentTab: 3,),
     );
   }
 }
