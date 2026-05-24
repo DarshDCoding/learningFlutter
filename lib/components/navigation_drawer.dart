@@ -55,7 +55,7 @@ class _NavDrawerState extends State<NavDrawer> {
               child: Icon(Icons.favorite, size: 48, color: Colors.black),
             ),
 
-            navOptions(activeTab, 1, context, Icons.home, "H O M E", "/"),
+            navOptions(activeTab, 1, context, Icons.home, "H O M E", "/home"),
             navOptions(
               activeTab,
               2,
