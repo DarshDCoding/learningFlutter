@@ -9,6 +9,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:appBar("Settings"),
+      body: Center(child: Text("SettingsPage"),),
       // drawer: NavDrawer(currentTab: 3,),
     );
   }

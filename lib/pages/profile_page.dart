@@ -9,6 +9,7 @@ class PorfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:appBar("Profile"),
+      body: Center(child: Text("ProfilePage"),),
       // drawer: NavDrawer(currentTab: 2,),
     );
   }
